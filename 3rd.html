@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Signature Platform | Sign Smarter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #e0f0ff, #f4f6f9);
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #004080;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #004080;
+    }
+    header {
+      background: linear-gradient(135deg, #004080, #0066cc);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+      background-size: 200% 200%;
+      animation: gradientBG 10s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    header h1 {
+      font-size: 3rem;
+    }
+    header p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+    .cta-buttons a {
+      display: inline-block;
+      margin: 1.5rem 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: white;
+      color: #004080;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .cta-buttons a:hover {
+      background-color: #cce0ff;
+    }
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .feature-slider {
+      display: flex;
+      gap: 1rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .feature-track {
+      display: flex;
+      animation: slide-left 60s linear infinite;
+      gap: 1rem;
+    }
+    .feature-card {
+      min-width: 200px;
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: scale(1.05);
+    }
+    @keyframes slide-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    footer {
+      background-color: #004080;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+.animated-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #ffffff, #f0f6ff);
+}
+
+.hero-text {
+  flex: 1 1 400px;
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  color: #004080;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-text small {
+  display: block;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  color: #333;
+}
+
+.hero-text ul {
+  margin-top: 0.5rem;
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: #333;
+}
+
+.cta-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #004080;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  animation: pulse 2s infinite;
+}
+
+.cta-btn:hover {
+  background-color: #0059b3;
+  transform: scale(1.05);
+}
+
+.hero-image {
+  flex: 1 1 400px;
+  text-align: center;
+  animation: fadeInRight 1s ease forwards;
+}
+
+.hero-image img {
+  max-width: 500px;
+  height: 350px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.integration-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  background: linear-gradient(145deg, #f8fbff, #ffffff);
+}
+
+.integration-image {
+  flex: 1 1 400px;
+  text-align: center;
+  animation: slideInLeft 1s ease forwards;
+}
+
+.integration-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.integration-content {
+  flex: 1 1 450px;
+  padding-left: 2rem;
+  animation: slideInRight 1s ease forwards;
+}
+
+.integration-content h2 {
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 1rem;
+}
+
+.integration-content ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.integration-content p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.sales-btn {
+  background-color: #004080;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  animation: pulse 2s infinite;
+}
+
+.sales-btn:hover {
+  background-color: #0059b3;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .integration-section {
+    flex-direction: column;
+  }
+  .integration-content {
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+}
+
+.steps-section {
+  background-color: #f0f6ff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.steps-heading {
+  font-size: 2.5rem;
+  color: #004080;
+  margin-bottom: 0.5rem;
+}
+
+.steps-subtext {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 3rem;
+}
+
+.steps-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.left-text {
+  flex: 1 1 400px;
+  text-align: left;
+  padding: 1rem;
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+.left-text h3 {
+  font-size: 1.5rem;
+  color: #003366;
+  margin-bottom: 1rem;
+}
+
+.left-text ul {
+  padding-left: 1.5rem;
+  list-style: disc;
+  color: #444;
+}
+
+.right-carousel {
+  flex: 1 1 400px;
+  overflow: hidden;
+  position: relative;
+  animation: fadeInRight 1s ease-in-out;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  animation: slideImages 20s linear infinite;
+}
+
+.slide-card {
+  min-width: 200px;
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.slide-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.slide-card h4 {
+  color: #004080;
+  margin-bottom: 0.5rem;
+}
+
+/* Animations */
+@keyframes slideImages {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-400%); }
+}
+
+@keyframes fadeInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .steps-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .left-text {
+    text-align: center;
+  }
+}
+
+.compare-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(145deg, #f0f6ff, #ffffff);
+  text-align: center;
+}
+
+.compare-section h2 {
+  font-size: 2.5rem;
+  color: #004080;
+  margin-bottom: 0.5rem;
+}
+
+.compare-section p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.feature-table {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  animation: fadeIn 1s ease;
+}
+
+.feature-row {
+  display: contents;
+}
+
+.feature-header div {
+  background-color: #004080;
+  color: white;
+  font-weight: bold;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.feature-row div {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+}
+
+.feature-label {
+  text-align: left;
+  font-weight: 500;
+  color: #003366;
+  background-color: #f9fbff;
+}
+
+.compare-cta {
+  margin-top: 2rem;
+}
+
+.compare-cta button {
+  padding: 0.75rem 1.5rem;
+  background-color: #004080;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  transition: transform 0.3s, 
+  
+}
+
+.compare-cta button:hover {
+  background-color: #0059b3;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .feature-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+.video-demo-section {
+  background: linear-gradient(to bottom right, #f0f6ff, #ffffff);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.video-container {
+  max-width: 960px;
+  margin: auto;
+}
+
+.video-text h2 {
+  font-size: 2.5rem;
+  color: #004080;
+  margin-bottom: 1rem;
+}
+
+.video-text p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.2s ease;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.benefit-section {
+  background: #f9fbff;
+  padding: 4rem 2rem;
+}
+
+.benefit-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.benefit-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  animation: fadeInUp 1s ease;
+}
+
+.benefit-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.benefit-image {
+  flex: 1 1 50%;
+  text-align: center;
+}
+
+.benefit-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-text {
+  flex: 1 1 50%;
+  padding: 1rem;
+  animation: slideIn 1s ease;
+}
+
+.benefit-text h3 {
+  font-size: 1.8rem;
+  color: #004080;
+  margin-bottom: 1rem;
+}
+
+.benefit-text p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .benefit-row,
+  .benefit-row.reverse {
+    flex-direction: column;
+  }
+}
+
+
+.testimonial-section {
+  background-color: #f7faff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.testimonial-section h2 {
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 3rem;
+}
+
+.testimonial-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.testimonial-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem 1.5rem;
+  max-width: 320px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+  position: relative;
+  text-align: left;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+}
+
+.testimonial-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.testimonial-card blockquote {
+  font-style: italic;
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.testimonial-card h4 {
+  margin: 0;
+  color: #004080;
+  font-size: 1.1rem;
+}
+
+.testimonial-card .title {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonial-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/*.marquee-section {
+  background: linear-gradient(to right, #e6f2ff, #f9fbff);
+  padding: 1rem 0;
+  overflow: hidden;
+  border-top: 2px solid #d0e7ff;
+  border-bottom: 2px solid #d0e7ff;
+}
+
+.marquee-wrapper {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 25s linear infinite;
+}
+
+.marquee-content span {
+display: inline-block;
+  margin-right: 4rem;
+  font-size: 1rem;
+  color: #003366;
+  font-weight: 500;
+}*/
+.clean-marquee {
+  background: #f9fbff;
+  padding: 1rem 0;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollMarquee 20s linear infinite;
+}
+
+.marquee-content span {
+  display: inline-block;
+  margin-right: 4rem;
+  font-size: 1.5rem;
+  color: #8ba8c4;
+  font-weight: 500;
+}
+
+@keyframes scrollMarquee {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Animation 
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}*/
+
+.safesend-footer {
+  background-color: #002244;
+  color: #ffffff;
+  padding: 3rem 2rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.footer-col h4 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #cccccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-columns {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.cta-section {
+  background: linear-gradient(-45deg, #004080, #0059b3, #3399ff, #66ccff);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cta-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #e6f4ff;
+}
+
+.cta-button {
+  background-color: white;
+  color: #004080;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #e6f4ff;
+  color: #003366;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cta-content h2 {
+    font-size: 1rem;
+  }
+  .cta-content p {
+    font-size: 1rem;
+  }
+}
+</style>
+
+</head>
+<body>
+  <nav>
+    <div class="logo">E-Signature</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how-it-works">Integrations</a></li>
+      <li><a href="#how-it-works">How it Works</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Send. Sign. Track. Automate.</h1>
+    <p>Your complete e-signature workflow with automation, AI, and secure delivery.</p>
+    <div class="cta-buttons">
+      <a href="#get-started">Start Free</a>
+      <a href="#demo">Request a Demo</a>
+    </div>
+  </header>
+
+  <section class="section" id="features">
+    <h2 class="section-title">Powerful Features</h2>
+    <div class="feature-slider">
+      <div class="feature-track">
+        <div class="feature-card"><h4>E-Sign Request</h4><p>Send, sign, and track documents.</p></div>
+        <div class="feature-card"><h4>Documents</h4><p>Centralized file management.</p></div>
+        <div class="feature-card"><h4>Templates</h4><p>Reusable templates for faster workflows.</p></div>
+        <div class="feature-card"><h4>Dashboard</h4><p>Get complete visibility.</p></div>
+        <div class="feature-card"><h4>Contacts</h4><p>Manage signers and recipients.</p></div>
+        <div class="feature-card"><h4>Tags</h4><p>Smart tagging system.</p></div>
+        <div class="feature-card"><h4>Signatures</h4><p>Create and store secure signatures.</p></div>
+        <div class="feature-card"><h4>Manage Community</h4><p>Roles, access, and permissions.</p></div>
+        <div class="feature-card"><h4>Membership</h4><p>Invite and manage members.</p></div>
+        <div class="feature-card"><h4>Dual Channel Transcription</h4><p>Voice-to-text with clarity.</p></div>
+        <div class="feature-card"><h4>Personalize</h4><p>Custom branding and themes.</p></div>
+        <div class="feature-card"><h4>My Activity</h4><p>Track all user actions.</p></div>
+        <div class="feature-card"><h4>Connect</h4><p>3rd-party integrations ready.</p></div>
+        <div class="feature-card"><h4>Assemble</h4><p>Merge multiple PDFs into one.</p></div>
+        <div class="feature-card"><h4>Delivery</h4><p>Email/SMS notifications.</p></div>
+        <div class="feature-card"><h4>Overview</h4><p>Summary of usage.</p></div>
+        <div class="feature-card"><h4>Zapier</h4><p>Connect 5,000+ tools.</p></div>
+        <div class="feature-card"><h4>SMS Configuration</h4><p>Send via text channels.</p></div>
+        <div class="feature-card"><h4>AI Configuration</h4><p>AI-driven logic and flows.</p></div>
+        <div class="feature-card"><h4>Transcription Config</h4><p>Custom voice configs.</p></div>
+        <div class="feature-card"><h4>Receiver</h4><p>Track client-side activity.</p></div>
+        <div class="feature-card"><h4>Billing</h4><p>Invoices, payments, and plans.</p></div>
+        <div class="feature-card"><h4>Team Setting</h4><p>Role-based permissions.</p></div>
+        <div class="feature-card"><h4>Team Users</h4><p>Onboard your full team.</p></div>
+        <div class="feature-card"><h4>Account</h4><p>Update profile and preferences.</p></div>
+        <div class="feature-card"><h4>Developers Tool</h4><p>API, webhooks, and docs.</p></div>
+        <div class="feature-card"><h4>Tutorials</h4><p>Learn to use every module.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="animated-hero">
+  <div class="hero-text">
+    <h1 style="margin-left: 400px;">E-Sign One</h1>
+    <h2 style="margin-left: 400px;">Trusted by 70% of Top Tax & Legal Firms</h2>
+    <p style="margin-left: 400px;">Automate Your Document Workflow — From Upload to Signature to Delivery</p>
+    <button class="cta-btn" style="margin-left: 450px;">Book a Demo</button>
+    <small style="margin-left: 400px;">Seamlessly integrates with:</small>
+    <ul>
+      <li style="margin-left: 400px;">Thomson Reuters UltraTax CS® & GoSystem® Tax RS</li>
+      <li style="margin-left: 400px;">CCH Axcess™ & ProSystem fx®</li>
+      <li style="margin-left: 400px;">Intuit Lacerte®</li>
+    </ul>
+  </div>
+  <div class="hero-image">
+    <img src="C:\Users\iregm\Desktop\esign landing page\images\2.gif" alt="E-sign animation" />
+  </div>
+</section>
+
+<section class="integration-section">
+  <div class="integration-image">
+    <img src="C:\Users\iregm\Desktop\esign landing page\images\3.jpg" alt="Tax software integration" />
+  </div>
+  <div class="integration-content">
+    <h2>Seamless, Easy Integration with Leading Tax Prep Software</h2>
+    <ul>
+      <li>Thomson Reuters UltraTax CS® & GoSystem® Tax RS</li>
+      <li>CCH Axcess™ & ProSystem fx®</li>
+      <li>Intuit Lacerte®</li>
+    </ul>
+    <p>No more jumping from tool to tool—work with the tech you have. Setting up E-Sign One is easy, too. Average implementation time is 3–4 hours.</p>
+    <button class="sales-btn">Contact Our Sales Team</button>
+  </div>
+</section>
+
+<section class="steps-section">
+  <h2 class="steps-heading">Streamline Tax Returns in 4 Easy Steps</h2>
+  <p class="steps-subtext">E-Sign One is the end-to-end solution for tax and accounting professionals</p>
+
+  <div class="steps-content">
+    <div class="left-text">
+      <h3>Automate Tax Intake</h3>
+      <ul>
+        <li>Engagement Letters</li>
+        <li>eSignatures</li>
+        <li>Document Sourcing</li>
+        <li>Client Document Request Lists</li>
+        <li>Custom Questionnaires</li>
+        <li>Real-Time Completion Tracking</li>
+      </ul>
+    </div>
+
+    <div class="right-carousel">
+      <div class="carousel-track">
+        <div class="slide-card">
+          <h4>1. Gather</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\a.jpg" alt="Gather step">
+        </div>
+        <div class="slide-card">
+          <h4>2. Connect</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\b.jpg" alt="Connect step">
+        </div>
+        <div class="slide-card">
+          <h4>3. Preparation</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\c.jpg" alt="Prepare step">
+        </div>
+        <div class="slide-card">
+          <h4>4. Delivery</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\d.jpg" alt="Deliver step">
+        </div>
+        <div class="slide-card">
+          <h4>1. Gather</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\a.jpg" alt="Gather step">
+        </div>
+        <div class="slide-card">
+          <h4>2. Connect</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\b.jpg" alt="Connect step">
+        </div>
+        <div class="slide-card">
+          <h4>3. Preparation</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\c.jpg" alt="Prepare step">
+        </div>
+        <div class="slide-card">
+          <h4>4. Delivery</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\d.jpg" alt="Deliver step">
+        </div>
+      <div class="slide-card">
+          <h4>1. Gather</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\a.jpg" alt="Gather step">
+        </div>
+        <div class="slide-card">
+          <h4>2. Connect</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\b.jpg" alt="Connect step">
+        </div>
+        <div class="slide-card">
+          <h4>3. Preparation</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\c.jpg" alt="Prepare step">
+        </div>
+        <div class="slide-card">
+          <h4>4. Delivery</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\d.jpg" alt="Deliver step">
+        </div>
+        <div class="slide-card">
+          <h4>1. Gather</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\a.jpg" alt="Gather step">
+        </div>
+        <div class="slide-card">
+          <h4>2. Connect</h4>
+          <img src="C:C:\Users\iregm\Desktop\esign landing page\images\b.jpg" alt="Connect step">
+        </div>
+        <div class="slide-card">
+          <h4>3. Preparation</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\c.jpg" alt="Prepare step">
+        </div>
+        <div class="slide-card">
+          <h4>4. Delivery</h4>
+          <img src="C:\Users\iregm\Desktop\esign landing page\images\d.jpg" alt="Deliver step">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</section>
+<section class="compare-section">
+  <h2>What’s Included</h2>
+  <p>Straightforward and simple pricing packages to address your firm’s needs</p>
+
+  <div class="feature-table">
+    <div class="feature-row feature-header">
+      <div class="feature-label">Features</div>
+      <div>Essential</div>
+      <div>Preferred</div>
+      <div>Premium</div>
+    </div>
+
+    <!-- Each Feature Row -->
+    <div class="feature-row">
+      <div class="feature-label">📄 Tax Returns</div>
+      <div>✅</div>
+      <div>✅</div>
+      <div>✅</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-label">✍️ eSignatures</div>
+      <div>✅</div>
+      <div>✅</div>
+      <div>✅</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-label">⏳ Extensions</div>
+      <div>✅</div>
+      <div>✅</div>
+      <div>✅</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-label">😊 Client Experience</div>
+      <div>✅</div>
+      <div>✅</div>
+      <div>✅</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-label">🔗 Integrations</div>
+      <div></div>
+      <div>✅</div>
+      <div>✅</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-label">📞 Customer Support</div>
+      <div></div>
+      <div>✅</div>
+      <div>✅</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-label">🗂️ Organizers</div>
+      <div></div>
+      <div>✅</div>
+      <div>✅</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-label">🔒 Secure File Transfer</div>
+      <div></div>
+      <div></div>
+      <div>✅</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-label">📋 Document Request Lists</div>
+      <div></div>
+      <div></div>
+      <div>✅</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-label">📌 TicTie Calculate PDF Tool</div>
+      <div></div>
+      <div></div>
+      <div>✅</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-label">🤖 Next Gen Gather AI</div>
+      <div></div>
+      <div></div>
+      <div>✅</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-label">⚙️ API Connections</div>
+      <div></div>
+      <div></div>
+      <div>✅</div>
+    </div>
+  </div>
+
+  <div class="compare-cta">
+    <button>Contact Our Sales Team</button>
+  </div>
+</section>
+
+<section class="video-demo-section">
+  <div class="video-container">
+    <div class="video-text">
+      <h2>How SignMarrys Works</h2>
+      <p>Experience the fast, simple, and secure way to request and manage signatures online. From document upload to signature delivery — all in one smooth workflow.</p>
+    </div>
+
+<div class="video-wrapper">
+      <!-- Embed a YouTube video or use your own video.mp4 -->
+    <iframe 
+        src="https://youtu.be/AoGo0Go2otg?si=5YiKsOksAbKP80Zc" 
+        title="How SignMarrys Works" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+ 
+    </div>
+  </div>
+</section>
+
+<section class="benefit-section">
+  <div class="benefit-content">
+    <!-- Row 1: Image Left, Text Right -->
+    <div class="benefit-row">
+      <div class="benefit-image">
+        <img src="C:\Users\iregm\Desktop\esign landing page\images\7.png" alt="eSign Feature">
+      </div>
+      <div class="benefit-text">
+        <h3>Secure & Legally Compliant eSignatures</h3>
+        <p>Send and collect legally binding signatures in seconds. SignMarrys ensures every document meets international security standards for eSignatures with full audit trails and user authentication.</p>
+      </div>
+    </div>
+
+    <!-- Row 2: Text Left, Image Right -->
+    <div class="benefit-row reverse">
+      <div class="benefit-image">
+        <img src="C:\Users\iregm\Desktop\esign landing page\images\8.jpg" alt="Team Collaboration">
+      </div>
+      <div class="benefit-text">
+        <h3>Seamless Team Collaboration</h3>
+        <p>Manage roles, permissions, and workflows across your entire team. From internal routing to multi-party signing, every process is streamlined to eliminate manual follow-ups.</p>
+      </div>
+    </div>
+
+    <!-- Row 3: Image Left, Text Right -->
+    <div class="benefit-row">
+      <div class="benefit-image">
+        <img src="C:\Users\iregm\Desktop\esign landing page\images\9.png" alt="Integration">
+      </div>
+      <div class="benefit-text">
+        <h3>Integrate with Zapier & Your Favorite Tools</h3>
+        <p>Connect SignMarrys with 5,000+ tools using Zapier. Whether it’s Google Drive, Mailchimp, or CRMs, we fit right into your existing tech stack with no hassle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="testimonial-section">
+  <h2>SignMarrys Saves Firms Thousands of Hours Every Year</h2>
+
+  <div class="testimonial-grid">
+    <!-- Testimonial 1 -->
+    <div class="testimonial-card">
+      <img src="C:\Users\iregm\Desktop\esign landing page\images\av.avif" alt="Bob Fink">
+      <blockquote>
+        “I could not imagine staff picking up these manual tasks and having to click through these screens ever again. We're not going back.”
+      </blockquote>
+      <h4>Bob Fink</h4>
+      <p class="title">Chief Information Officer<br>Honkamp, P.C.</p>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="testimonial-card">
+      <img src="C:\Users\iregm\Desktop\esign landing page\images\av.avif" alt="Cindy Owens">
+      <blockquote>
+        “[Next Gen Gather AI in SignMarrys] just makes the process so much easier. For our team to be able to see what we asked for and what clients submitted, it's going to increase our efficiency by quite a bit. It’s a gamechanger.”
+      </blockquote>
+      <h4>Cindy Owens</h4>
+      <p class="title">Software Analyst<br>Rehmann</p>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="testimonial-card">
+      <img src="C:C:\Users\iregm\Desktop\esign landing page\images\av.avif" alt="Melody Young">
+      <blockquote>
+        “If you're even slightly thinking about SignMarrys, I would jump in the deep end of the pool with no life vest. It's super easy to learn, the team walks you through everything, and customer service is amazing.”
+      </blockquote>
+      <h4>Melody Young</h4>
+      <p class="title">Admin Operations Manager<br>BMS LLC Advisors & CPAs</p>
+    </div>
+  </div>
+</section>
+
+<section class="marquee-section">
+  <div class="marquee-wrapper">
+    <div class="marquee-content">
+      <span>🔐 Bank-level security with full audit trail</span>
+      <span>⚡ Fast, automated signing workflow</span>
+      <span>📦 Drag-and-drop document assembly</span>
+      <span>🤝 Perfect for remote collaboration</span>
+      <span>🔗 Zapier & Google Drive Integrations</span>
+      <span>📈 Dashboard for team tracking and insights</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-content">
+    <h2>Ready to Streamline Your Signature Workflow?</h2>
+    <p>Experience how SignMarrys can save your firm time, reduce manual work, and delight your clients.</p>
+    <a href="#" class="cta-button">📅 Book a Demo</a>
+  </div>
+</section>
+
+<footer class="safesend-footer">
+  <div class="footer-container">
+    <div class="footer-columns">
+      
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">System Status</a></li>
+          <li><a href="tel:+18551234567">(855) 123-4567</a></li>
+          <li><a href="mailto:support@signmarrys.com">support@signmarrys.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Sales</h4>
+        <ul>
+          <li><a href="tel:+18009876543">(800) 987-6543</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Book a Demo</a></li>
+          <li><a href="#">Pricing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">eSignatures</a></li>
+          <li><a href="#">Tax Returns</a></li>
+          <li><a href="#">Secure File Transfer</a></li>
+          <li><a href="#">Client Experience</a></li>
+          <li><a href="#">Gather AI</a></li>
+          <li><a href="#">Integrations</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="#">Webinars</a></li>
+          <li><a href="#">Success Stories</a></li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">Product Education</a></li>
+          <li><a href="#">API Docs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Leadership</a></li>
+          <li><a href="#">Partners</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">User Agreement</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 SignMarrys. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
